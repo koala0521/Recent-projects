@@ -5,7 +5,7 @@ var data = [
 				{"src":"img/photo01.png","title":"photo",index:0,canDel:"true"},
 				{"src":"img/rl.png","title":"日历",index:1,canDel:"false"},
 				{"src":"img/xc.png","title":"相册",index:2,canDel:"false"},
-				{"src":"img/QQmusic.png","title":"QQ音乐",index:3,canDel:"true"},
+				{"src":"img/QQmusic.png","title":"我的音乐",index:3,canDel:"true"},
 				{"src":"img/tq.png","title":"天气",index:4,canDel:"false"},
 				{"src":"img/sp.png","title":"视频",index:5,canDel:"false"},
 				{"src":"img/skyguide01.png","title":"sky guide",index:6,canDel:"true"},
@@ -37,3 +37,38 @@ var data = [
 	];
 
 var photosData = ["img/photo/img051.jpg","img/photo/img052.jpg","img/photo/img053.jpg","img/photo/img054.jpg","img/photo/img055.jpg","img/photo/img056.jpg","img/photo/img057.jpg","img/photo/img058.jpg","img/photo/img01.jpg","img/photo/img03.jpg","img/photo/img051.jpg","img/photo/img052.jpg","img/photo/img053.jpg","img/photo/img054.jpg","img/photo/img051.jpg","img/photo/img052.jpg","img/photo/img053.jpg","img/photo/img054.jpg","img/photo/img055.jpg","img/photo/img056.jpg","img/photo/img057.jpg","img/photo/img058.jpg"];
+
+var musicData = [
+
+				{
+					songSrc:"music/成都.mp3",
+					song:"成都",
+					singer:"赵雷",
+					imgSrc:"img/musicImg/chengdu.jpg"
+				},
+				{
+					songSrc:"music/你还要我怎样.mp3",
+					song:"你还要我怎样",
+					singer:"薛之谦",
+					imgSrc:"img/musicImg/xueZhiQian.jpg"
+				},
+				{
+					songSrc:"music/痒.mp3",
+					song:"痒",
+					singer:"黄龄",
+					imgSrc:"img/musicImg/huang.jpg"
+				},
+				{
+					songSrc:"music/冬天的秘密.mp3",
+					song:"冬天的秘密",
+					singer:"周传雄",
+					imgSrc:"img/musicImg/dongTian.jpg"
+				},
+				{
+					songSrc:"music/我绝对不能失去你.mp3",
+					song:"我绝对不能失去你",
+					singer:"GALA",
+					imgSrc:"img/musicImg/gala.jpg"
+				}
+
+			];

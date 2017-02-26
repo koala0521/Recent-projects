@@ -1,6 +1,13 @@
 body{
 	overflow: hidden;
 }
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
 section.warp{
 	
 	width: 100%;
@@ -10,6 +17,7 @@ section.warp{
 	background-size: cover;
 
 }
+
 #state{
 	width: 100%;
 	height: 3.066666rem;
@@ -69,6 +77,7 @@ section.warp{
 }
 
 #state .time{
+	
 	line-height: 3.066666rem;	
 	width: 4rem;
 	height: 100%;
@@ -80,7 +89,6 @@ section.warp{
 	font-size: 1.5rem;
 	display: none;
 }
-
 
 #mask{
 	
@@ -604,7 +612,6 @@ section.warp .foot_show{
 	bottom: 4rem;
 	border-radius: 50%;
 	border: 1px solid #fff;
-	background: rgba(112,111,110,.3);
 	z-index: 10;	
 }
 
@@ -617,12 +624,15 @@ section.warp .foot_show{
 	left: 50%;
 	top: 50%;
 	transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
 	font-size: 4rem;
 	text-align: center;
 	line-height: 4rem;
 	color: red;
 	border-radius: 50%;
-	border: 1px solid #FFFDE1;	
+	margin: 1px 0 0 -1px;
+	box-sizing: border-box;	
+	overflow: hidden;
 }
 
 .appContent .menu .iconBack.active{
@@ -828,10 +838,12 @@ section.warp .foot_show{
 	
 	width: 100vw;
 	height: 100vh;
-	background: #C9E2B3;
+	background: #d43b33;
 	padding-top: 3rem;
 	font-size: 2rem;
+	position: relative;
 	display: none;
+	overflow: hidden;
 }
 
 .warp .appContent .musicPlayer h3{
@@ -840,21 +852,378 @@ section.warp .foot_show{
 	line-height: 4rem;
 	font-size: 3rem;
 	text-align: center;
+	color: #fff;
+	/*padding-bottom: 0.666666rem;*/
+	margin-bottom: 0.666666rem;
+	margin-top: 0.75rem;
+	position: relative;
+	z-index: 1;
+}
+
+.warp .appContent .musicPlayer h3 .toPlay{
+	font-size: 3rem;
+	position: absolute;
+	right: 1.5rem;
+	transform: rotateY(180deg) rotateZ(90deg);
+	-webkit-transform: rotateY(180deg) rotateZ(90deg);
+}
+
+.appContent .musicPlayer .mList{
+	
+	height: 73.333333rem;
+	overflow: hidden;
+	background: #fbfcfe;
+	border-bottom: 2px solid #aaa;
+	overflow: hidden;	
 }
 
 .appContent .musicPlayer .musicList{
 	
-	background: #fff;
-	
+	margin-bottom: 0.6rem;
 }
 
-.warp .appContent .musicPlayer .musicList li{
+.appContent .musicPlayer .musicList li{
 	
 	height: 10vh;
+	padding: 1rem 1.5rem 1rem 3rem;
+	box-sizing: border-box;
+	position: relative;
+	border-bottom: 1px solid #ccc; 
+}
+
+.appContent .musicPlayer .musicList li .mTitle{
+	
+	font-size: 2.5rem;
+	text-align: left;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 0;
+	color: #000;
+	font-weight: normal;		
+}
+.appContent .musicPlayer .musicList li .mSinger{
+	
+	font-size: 2rem;
+	color: #aaa;
+}
+
+.appContent .musicPlayer .musicList li .button{
+	width: 5rem;
+	height: 3.5rem;
+	line-height: 3.5rem;
+	font-size: 2.5rem;
+	position: absolute;
+	right: 1.5rem;
+	top: 50%;
+	margin-top: -1.75rem;
+	border: 2px solid #6A6A6A;
+	text-align: center;
+	border-radius: 0.5rem;
+	color: #aaa;
+}
+
+.musicPlayer .musicList li.active .mTitle,.musicPlayer .musicList li.active .mSinger{
+	
+	color: #bb2128;
+}
+
+.appContent .musicPlayer .musicList li .playIcon{
+	
+	width: 2rem;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 2rem;
+	text-align: center;
+	color: #bb2128;
+	position: absolute;
+	left: 0.5rem;
+	top: 50%;
+	margin-top: -1rem;
+	display: none;
+}
+.appContent .musicPlayer .musicList li.active .playIcon{
+	
+	display: block;s
+}
+.appContent .musicPlayer .foot{
+	width: 100%;
+	height: 7.2rem;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	background: #39393b;
+}
+.appContent .musicPlayer .foot li{
+	height: 100%;
+	width: 25%;
+	box-sizing: border-box;
+	padding: 0 1rem;
+}
+.appContent .musicPlayer .palyerPage{
+	
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 3;
+	background: url(../img/musicImg/music.jpg) no-repeat center;
+	background-size: 500%;
+	left: 0;
+	top: 0;
+	box-sizing: border-box;
+	padding-top: 3rem;
+	overflow: hidden;
+	display: none;
+}
+
+.appContent .musicPlayer .palyerPage h3{
+	
+	position: relative;
+	height: 4.666666rem;
+	padding-bottom: 0.666666rem;
+	border-bottom: 1px solid #333;
+	margin-bottom: 0;
+}
+
+.musicPlayer .palyerPage h3>span{
+	position: absolute;
+	width: 5rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 2.5rem;
+    top: 0;
+}
+.musicPlayer .palyerPage h3>span.backMlist{
+	
+	left: 1rem;
+}
+
+.musicPlayer .palyerPage h3>span.share{
+	
+	right: 1rem;
+}
+.musicPlayer .palyerPage h3 .song{
+	
+	height: 2.5rem;
+	text-align: center;
+	line-height: 2.5rem;
+	font-size: 2rem;
+}
+.musicPlayer .palyerPage h3 .singer{
+	
+	height: 1.5rem;
+	text-align: center;
+	line-height: 1.5rem;
+	font-size: 1.5rem;
+}
+
+.musicPlayer .palyerPage .mPlay{
+	padding: 0 6.8rem;
+	text-align: right;
+	position: relative;
+	z-index: 2;	
+
+}
+.musicPlayer .palyerPage .mPlay img{
+	
+	width: 20rem;
+	height: 10rem;
+	transition: 500ms;
+	-webkit-transform: rotateZ(0deg);
+	transform: rotateZ(0deg);
+	transform-origin: 1rem top;
+	margin: -0.4rem 0 0 -2px;
+	z-index: 2;
+}
+.musicPlayer .palyerPage .mPlay img.active{
+	
+	-webkit-transform: rotateZ(25deg);
+	transform: rotateZ(25deg);	
 	
 }
 
 
+.musicPlayer .palyerPage .mPlay .jidian{
+	
+	position: absolute;
+	width: 3.466666rem;
+	height: 2rem;
+	background: url(../img/musicImg/jidain.png) no-repeat center top;
+	background-size: cover;
+	left: 50%;
+	top: 0;
+	margin-left: -1.733333rem;
+}
+
+.musicPlayer .palyerPage .songImg{
+	
+	width: 40rem;
+	height: 40rem;
+	position: absolute;
+	left: 50%;
+	top: 17rem;
+	margin-left: -20rem;
+	/*background: #fff;*/
+	border-radius: 50%;
+	border: 1rem solid #999999;
+	box-sizing: border-box;
+}
+
+@-webkit-keyframes rotate{
+	from{
+		transform: rotateZ(0deg);
+	}
+	to{
+		transform: rotateZ(360deg);
+	}
+}
+
+.musicPlayer .palyerPage .songImg span.bg{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: url(../img/musicImg/musicBG.png) no-repeat center;
+	background-size: cover;
+	overflow: hidden;
+	animation: rotate 15s linear infinite;
+}
+
+.musicPlayer .palyerPage .songImg span.bg img{
+	
+	width: 30rem;
+	height: 30rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -15rem;
+	margin-top: -15rem;
+	border-radius: 50%;
+}
+
+.musicPlayer .palyerPage .musicFoot{
+	
+	width: 100%;
+	height: 16rem;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.musicPlayer .palyerPage .musicFoot .icons{
+	width: 100%;
+	height: 4rem;
+	padding: 0 10%;
+	box-sizing: border-box;
+
+}
+.musicPlayer .palyerPage .musicFoot .icons span{
+	
+	width: 20vw;
+	float: left;
+	text-align: center;
+	height: 100%;	
+	font-size: 3rem;
+	line-height: 4rem;
+	color: #fff;
+	font-weight: normal;
+}
+
+.musicPlayer .palyerPage .musicFoot .icons .heart.active{
+	color: #d33a32;
+}
+
+.musicPlayer .palyerPage .musicFoot .times{
+	
+	height: 4rem;
+	line-height: 4rem;
+	position: relative;
+}
+.musicPlayer .palyerPage .musicFoot .times .currentTime ,.musicPlayer .palyerPage .musicFoot .times .allTime{
+	width: 6.666666rem;
+	height: 100%;
+	text-align: center;
+	font-size: 1.5rem;
+	color: #42424e;
+}
+.musicPlayer .palyerPage .musicFoot .times .lines{
+	
+	width: 36.666666rem;
+	height: 0.4rem;
+	background: #3a3a46;
+	position: absolute;
+	left: 50%;
+	margin-left: -18.333333rem;
+	top: 50%;
+	margin-top: -0.2rem;
+}
+.musicPlayer .palyerPage .musicFoot .times .lines .touchIcon{
+	width: 3.0rem;
+	height: 3.0rem;
+	background: url(../img/musicImg/touchIcon.png) no-repeat center;
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -1.5rem;
+}
+
+.musicPlayer .palyerPage .musicFoot .times .lines .lastTime{
+	
+	/*width: 36.666666rem;*/
+	height: 0.4rem;
+	background: #d44946;
+	position: absolute;	
+	left: 0;
+	top: 0;
+}
+
+.musicPlayer .palyerPage .musicFoot .ctrl{
+	
+	height: 8rem;
+	
+}
+.musicPlayer .palyerPage .musicFoot .ctrl div{
+	
+	float: left;
+	height: 100%;
+	text-align: center;
+	line-height: 8rem;
+	
+}
+
+.musicPlayer .palyerPage .musicFoot .ctrl div span{
+	
+	font-weight: normal;
+}
+
+.musicFoot .ctrl div.moShi,.musicFoot .ctrl div.jiLu{
+	
+	width: 15vw;
+	color: #CACACA;
+	font-size: 3rem;
+	
+}
+
+.musicFoot .ctrl div.proveSong,.musicFoot .ctrl div.nextSong{
+	
+	width: 20vw;
+	color: #CFCFCF;
+	font-size: 4rem;
+}
+
+.musicFoot .ctrl div.onoff{
+	color: #fff;
+	width: 30vw;
+	font-size: 5rem;
+}
+.musicFoot .ctrl div.onoff span{
+	border-radius: 50%;
+	border: 0.2rem solid #F0F3F6;
+	text-align: center;
+	padding: 0.8rem;
+}
 
 /* app没有内容提示  */
 .appContent .noInfo{ 

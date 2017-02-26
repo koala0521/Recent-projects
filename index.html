@@ -169,15 +169,97 @@
 					<div class="footer"></div>
 				</div>
 				<div class="musicPlayer info" >
-					<h3>我的音乐</h3>
-					<ul class="musicList">
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+					<audio id="audio">
+						    <source src="music/痒.mp3" type="audio/ogg">
+						    <source src="music/痒.mp3" type="audio/mpeg">
+						    <source src="music/痒.mp3" type="audio/wav">
+						您的浏览器不支持，音乐播放器，请使用体验更好的浏览器打开，推荐谷歌、火狐等浏览器。
+					</audio>
+					<h3>
+						我的音乐
+						<span class="toPlay glyphicon glyphicon-align-right" ></span>
+					</h3>
+					<div class="mList" >
+						<ul class="musicList">
+							<li class="active">
+								<h3 class="mTitle" >我绝对不能失去你</h3>
+								<p class="mSinger">gala</p>
+								<span class="button glyphicon glyphicon-option-horizontal" ></span>
+								<span class="playIcon glyphicon glyphicon-volume-up" ></span>
+							</li>
+							<li>
+								<h3 class="mTitle" >我绝对不能失去你</h3>
+								<p class="mSinger">gala</p>
+								<span class="button glyphicon glyphicon-option-horizontal" ></span>
+								<span class="playIcon glyphicon glyphicon-volume-up" ></span>
+							</li>
+							<li>
+								<h3 class="mTitle" >我绝对不能失去你</h3>
+								<p class="mSinger">gala</p>
+								<span class="button glyphicon glyphicon-option-horizontal" ></span>
+								<span class="playIcon glyphicon glyphicon-volume-up" ></span>							
+							</li>
+
+						</ul>						
+						
+					</div>
+					<ul class="foot">
+						<!--<li><span></span><span></span></li>
+						<li><span></span><span></span></li>
+						<li><span></span><span></span></li>
+						<li><span></span><span></span></li>-->
 					</ul>
+					<div class="palyerPage">
+						<h3>
+							<span class="backMlist glyphicon glyphicon-chevron-left" ></span>
+							<div class="song" >歌名</div>
+							<div class="singer" >歌手</div>
+							<span class="share glyphicon glyphicon-share" ></span>
+						</h3>
+						<div class="mPlay">
+							<img class="active" src="img/musicImg/player.png"/>
+							<span class="jidian" ></span>
+						</div>
+						<div class="songImg">							
+							<span class="bg" >
+								<img src="img/musicImg/music.jpg"/>
+							</span>
+						</div>
+						<div class="musicFoot">
+							<div class="icons" >
+								<span class="heart active glyphicon glyphicon-heart" ></span>
+								<span class="download glyphicon glyphicon-download-alt"></span>
+								<span class="comment glyphicon glyphicon-comment" ></span>
+								<span class="option glyphicon glyphicon-option-vertical"></span>
+							</div>
+							<div class="times" >
+								<div class="currentTime fl" >00:00</div>
+								<div class="lines">
+									<div class="lastTime" ></div>
+									<span class="touchIcon" ></span>
+								</div>
+								<div class="allTime fr">05:21</div>
+							</div>
+							<div class="ctrl">
+								<div class="moShi" >
+									<span class=" glyphicon glyphicon-retweet" ></span>
+								</div>
+								<div class="proveSong">
+									<span class="glyphicon glyphicon-step-backward" ></span>
+								</div>
+								<div class="onoff">
+									<span class="glyphicon glyphicon-pause" ></span>
+								</div>
+								<div class="nextSong">
+									<span class=" glyphicon glyphicon-step-forward" ></span>
+								</div>
+								<div class="jiLu">
+									<span class="glyphicon glyphicon-list" ></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 				<div class="noInfo info" >app正在建设中...</div>								
 				<div class="menu" >					
@@ -226,8 +308,26 @@
 			
 			<%}%> 
 		</script>
+		
+		<script type="text/html" id="musicHtml" >
+			
+			<%for (var i = 0; i < data.length; i++) {%>
+			
+				<li>
+					<h3 class="mTitle" ><%= data[i].song %></h3>
+					<p class="mSinger"><%= data[i].singer %></p>
+					<span class="button glyphicon glyphicon-option-horizontal" ></span>
+					<span class="playIcon glyphicon glyphicon-volume-up" ></span>
+				</li>
+			
+			<%}%> 
+			
+		</script>
 	
 		<script>
+		
+		//渲染数据
+		
 			;(function(){
 				
 				//锁屏时间
@@ -338,6 +438,7 @@
 				
 				$(".bigImg").css("width",photosData.length*100 +"vw");
 				
+				//相册大图
 				var imgStr = "";
 				
 				for (var i = 0; i < photosData.length; i++) {
@@ -347,14 +448,29 @@
 
 				$(".bigImg").html( imgStr );
 				
+				
+				//生成播放器列表
+				
+				var musicList = { data : musicData };
+				
+				$(".musicPlayer .mList ul.musicList").html( template('musicHtml', musicList) );
+				
 			})();
+	
 		</script>
+		
 				<!-- isScroll -->
 		<script src="js/iscroll.js" > </script>
+				<!-- 运动函数封装 -->
 		<script src="js/m.Tween.js" > </script>
+				<!-- 多指操作封装（需配合运动函数） -->
 		<script src="js/gesture.js" ></script>
+				<!-- 可自定义的弹框封装 -->
 		<script src="js/dialog.js" ></script>
+				<!-- 主要交互 -->
 		<script src="js/myJs.js" ></script>
+				<!-- 音乐播放器相关交互 -->
+		<script src="js/musicPlayer.js" ></script>
 		
 		
 	</body>

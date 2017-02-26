@@ -861,7 +861,7 @@ function gestureFn(){  //相册多指操作函数
 //					interactiveScrollbars:true
 				});
 				
-			}else if( text === "QQ音乐" ){
+			}else if( text === "我的音乐" ){
 				
 				$(".appContent .musicPlayer").show();
 				
@@ -1300,13 +1300,16 @@ function gestureFn(){  //相册多指操作函数
 				
 				if( moveDis > 0 && index ){ //向右滑屏 
 					
-					index--;					
-					index < 0 ? index = 0 : index;					
+					index--;
+					
+					index < 0 ? index = 0 : index;
+					
 					$(".bigImgWarp .bigImg").data("currentIndex",index);
 					
 				} else if( moveDis < 0 && index < (photosData.length - 1) ){ //向左滑屏
 
-					index++;					
+					index++;
+					
 					index > (photosData.length -1) ? index = (photosData.length -1) : index;
 					$(".bigImgWarp .bigImg").data("currentIndex",index);
 					
@@ -1354,12 +1357,6 @@ function gestureFn(){  //相册多指操作函数
 
 gestureFn();
 
-// 音乐播放器
-(function(){
-	
-	$(".music_player")
-	
-})()
 
 
 
