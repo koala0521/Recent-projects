@@ -170,35 +170,18 @@
 				</div>
 				<div class="musicPlayer info" >
 					<audio id="audio">
-						    <source src="music/痒.mp3" type="audio/ogg">
-						    <source src="music/痒.mp3" type="audio/mpeg">
-						    <source src="music/痒.mp3" type="audio/wav">
+						    <source src="" type="audio/ogg">
+						    <source src="" type="audio/mpeg">
+						    <source src="" type="audio/wav">
 						您的浏览器不支持，音乐播放器，请使用体验更好的浏览器打开，推荐谷歌、火狐等浏览器。
 					</audio>
-					<h3>
+					<h3 class="mTitle" >
 						我的音乐
 						<span class="toPlay glyphicon glyphicon-align-right" ></span>
 					</h3>
 					<div class="mList" >
 						<ul class="musicList">
-							<li class="active">
-								<h3 class="mTitle" >我绝对不能失去你</h3>
-								<p class="mSinger">gala</p>
-								<span class="button glyphicon glyphicon-option-horizontal" ></span>
-								<span class="playIcon glyphicon glyphicon-volume-up" ></span>
-							</li>
-							<li>
-								<h3 class="mTitle" >我绝对不能失去你</h3>
-								<p class="mSinger">gala</p>
-								<span class="button glyphicon glyphicon-option-horizontal" ></span>
-								<span class="playIcon glyphicon glyphicon-volume-up" ></span>
-							</li>
-							<li>
-								<h3 class="mTitle" >我绝对不能失去你</h3>
-								<p class="mSinger">gala</p>
-								<span class="button glyphicon glyphicon-option-horizontal" ></span>
-								<span class="playIcon glyphicon glyphicon-volume-up" ></span>							
-							</li>
+
 
 						</ul>						
 						
@@ -217,7 +200,7 @@
 							<span class="share glyphicon glyphicon-share" ></span>
 						</h3>
 						<div class="mPlay">
-							<img class="active" src="img/musicImg/player.png"/>
+							<img class="" src="img/musicImg/player.png"/>
 							<span class="jidian" ></span>
 						</div>
 						<div class="songImg">							
@@ -455,6 +438,7 @@
 				
 				$(".musicPlayer .mList ul.musicList").html( template('musicHtml', musicList) );
 				
+				
 			})();
 	
 		</script>
@@ -465,6 +449,8 @@
 		<script src="js/m.Tween.js" > </script>
 				<!-- 多指操作封装（需配合运动函数） -->
 		<script src="js/gesture.js" ></script>
+				<!-- 模拟鼠标抬起事件封装 -->			
+		<script src="js/touchup.js" ></script>			
 				<!-- 可自定义的弹框封装 -->
 		<script src="js/dialog.js" ></script>
 				<!-- 主要交互 -->

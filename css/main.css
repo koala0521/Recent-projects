@@ -891,6 +891,11 @@ section.warp .foot_show{
 	border-bottom: 1px solid #ccc; 
 }
 
+.appContent .musicPlayer .musicList li.touched{
+	
+	background: #CCCCCC;
+}
+
 .appContent .musicPlayer .musicList li .mTitle{
 	
 	font-size: 2.5rem;
@@ -966,14 +971,18 @@ section.warp .foot_show{
 	height: 100%;
 	position: absolute;
 	z-index: 3;
-	background: url(../img/musicImg/music.jpg) no-repeat center;
-	background-size: 500%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 1000%;
+	background-image: url(../img/musicImg/cd.jpg);
 	left: 0;
 	top: 0;
 	box-sizing: border-box;
 	padding-top: 3rem;
 	overflow: hidden;
-	display: none;
+	transition: 500ms;
+	-webkit-transform: translateX(100%);
+	transform: translateX(100%);
 }
 
 .appContent .musicPlayer .palyerPage h3{
@@ -1088,7 +1097,12 @@ section.warp .foot_show{
 	background: url(../img/musicImg/musicBG.png) no-repeat center;
 	background-size: cover;
 	overflow: hidden;
-	animation: rotate 15s linear infinite;
+
+}
+
+.musicPlayer .palyerPage .songImg span.rotate{
+	
+	animation: rotate 15s linear infinite;	
 }
 
 .musicPlayer .palyerPage .songImg span.bg img{
@@ -1145,7 +1159,7 @@ section.warp .foot_show{
 	height: 100%;
 	text-align: center;
 	font-size: 1.5rem;
-	color: #42424e;
+	color: #CACACA;
 }
 .musicPlayer .palyerPage .musicFoot .times .lines{
 	

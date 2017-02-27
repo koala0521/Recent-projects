@@ -69,9 +69,11 @@ function gestureFn(){  //相册多指操作函数
 		eLeft = $("#lock")[0].offsetLeft;
 		
 	$("#lock .open").eq(0).on("touchstart",function(event){
+		
 		var e = event.changedTouches[0];
-		pagex = e.pageX;
-		disx = pagex - eLeft;
+			pagex = e.pageX;
+			disx = pagex - eLeft;
+		
 	})
 	
 	$("#lock .open").eq(0).on("touchmove",function(event){

@@ -41,34 +41,39 @@ var photosData = ["img/photo/img051.jpg","img/photo/img052.jpg","img/photo/img05
 var musicData = [
 
 				{
-					songSrc:"music/成都.mp3",
+					songSrc:"music/cd.mp3",
 					song:"成都",
 					singer:"赵雷",
-					imgSrc:"img/musicImg/chengdu.jpg"
+					imgSrc:"img/musicImg/cd.jpg",
+					bg:"url(img/musicImg/cd.jpg)"
 				},
 				{
-					songSrc:"music/你还要我怎样.mp3",
+					songSrc:"music/nhyzy.mp3",
 					song:"你还要我怎样",
 					singer:"薛之谦",
-					imgSrc:"img/musicImg/xueZhiQian.jpg"
+					imgSrc:"img/musicImg/xueZhiQian.jpg",
+					bg:"url(img/musicImg/xueZhiQian.jpg)"
 				},
 				{
-					songSrc:"music/痒.mp3",
+					songSrc:"music/yang.mp3",
 					song:"痒",
 					singer:"黄龄",
-					imgSrc:"img/musicImg/huang.jpg"
+					imgSrc:"img/musicImg/huang.jpg",
+					bg:"url(img/musicImg/huang.jpg)"
 				},
 				{
-					songSrc:"music/冬天的秘密.mp3",
+					songSrc:"music/dtdmm.mp3",
 					song:"冬天的秘密",
 					singer:"周传雄",
-					imgSrc:"img/musicImg/dongTian.jpg"
+					imgSrc:"img/musicImg/dongTian.jpg",
+					bg:"url(img/musicImg/dongTian.jpg)"
 				},
 				{
-					songSrc:"music/我绝对不能失去你.mp3",
+					songSrc:"music/bnsqn.mp3",
 					song:"我绝对不能失去你",
 					singer:"GALA",
-					imgSrc:"img/musicImg/gala.jpg"
+					imgSrc:"img/musicImg/gala.jpg",
+					bg:"url(img/musicImg/gala.jpg)"
 				}
 
 			];
