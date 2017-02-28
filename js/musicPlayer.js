@@ -28,12 +28,36 @@
 
 		timer = null,
 		
-		timer1 = null;		
+		timer1 = null;
+				
+		oAudio[0].addEventListener("progress",function(){
+//			
+//			console.log( this.buffered , this.readyState);
+			
+		},false);
+		
+		oAudio[0].addEventListener("canplay",function(){
+//			
+//			alert( "可以播放");
+			
+		},false);
+		
 
 	function randerTime(){
-
+		
+		clearInterval( timer1 );
+		
 		timer1 = setInterval(function(){
 			
+			if( oAudio[0].currentTime === 0 ){
+
+				oAudio[0].load();
+				
+				oAudio[0].play();
+				
+				return;
+			}
+
 			num3 =  Math.floor( parseInt(oAudio[0].currentTime) / 60);
 			
 			num4 = parseInt(oAudio[0].currentTime) % 60;
@@ -47,7 +71,7 @@
 		},1000);
 		
 	}
-	
+
 	function turnSong(){
 		
 		song.text( musicData[currentIndex].song );
@@ -59,23 +83,8 @@
 		oAudio.attr( "src" , musicData[currentIndex].songSrc );
 		
 		playPage.css( "background-image" , musicData[currentIndex].bg );
-				
-				timer = setInterval(function(){
-
-					if( oAudio[0].duration ){
-						
-						clearInterval( timer );
-						
-						num1 =  Math.floor(oAudio[0].duration / 60) < 10 ? "0" + Math.floor(oAudio[0].duration / 60) : "" + Math.floor(oAudio[0].duration / 60);
-					
-						num2 = parseInt(oAudio[0].duration % 60) < 10 ? "0" + parseInt(oAudio[0].duration % 60) : "" + parseInt(oAudio[0].duration % 60);
-						
-						$(".palyerPage .times .allTime").text( num1 + ":" + num2 );
-					}
-					
-					
-					
-				},0)		
+		
+		$(".times .allTime").eq(0).text( musicData[currentIndex].duration );
 
 	}
 	
@@ -98,6 +107,11 @@
 		
 	}
 	
+	function fn2(){
+		
+		$(this).css("color","#fff");
+	}
+	
 	function backFn(){
 		
 		playPage.css("transform","translateX(100%)");
@@ -105,9 +119,9 @@
 		menu.show();
 	}
 	
-	function fn2(){
+	function clearShadow(){
 		
-		$(this).css("color","#fff");
+		$(this).removeClass("shadow");
 	}
 	
 	new Touchup(toPlay[0],fn1,fn2);
@@ -121,7 +135,7 @@
 	
 	new Touchup(backList[0],backFn,fn2);
 	
-	//
+	//歌曲列表事件代理
 	$(".mList .musicList").eq(0).on("touchstart",function(ev){
 		
 		var tar = ev.target;
@@ -145,7 +159,8 @@
 		
 	});
 	
-	new Touchup($(".mList .musicList")[0],function(ev){
+	
+	function touchList1(ev){
 		
 		var tar = ev.target;
 
@@ -168,18 +183,9 @@
 				turnSong();	
 				
 			}
-	
-			if( oAudio[0].paused ){
-				
-				oAudio[0].play();
-				
-				randerTime();
 
-				$(".palyerPage .mPlay img").eq(0).addClass("active");
-				
-				$(".palyerPage .songImg .bg").addClass("rotate");
-			}
-			
+			isPlay();
+	
 			playPage.css("transform","translateX(0)");
 			
 			menu.hide();
@@ -201,24 +207,17 @@
 				
 			}
 			
-			if( oAudio[0].paused ){
-				
-				oAudio[0].play();
-				
-				randerTime();
-				
-				$(".palyerPage .mPlay img").eq(0).addClass("active");
-				
-				$(".palyerPage .songImg .bg").addClass("rotate");
-			}
-			
+			isPlay();
+
 			playPage.css("transform","translateX(0)");
 			
 			menu.hide();
 			
 		}		
 
-	},function(ev){
+	}
+	
+	function touchList2(ev){
 		
 		var tar = ev.target;
 
@@ -239,6 +238,49 @@
 			$(tar).parents().filter("li").removeClass("touched");
 		}
 		
-	});
+	}
+		
+	new Touchup($(".mList .musicList")[0],touchList1,touchList2);
+	
+	// 暂停/播放功能	
+	
+	var mOnoff = $(".ctrl .onoff span").eq(0);
+	
+	mOnoff.on("touchstart",function(){
+		
+		$(this).addClass("shadow");
+	})
+	
+	function isPlay(){
+
+		if( oAudio[0].paused ){
+			
+			oAudio[0].play();
+			
+			randerTime();
+			
+			mOnoff.removeClass("glyphicon-play");
+			
+			mOnoff.addClass("glyphicon-pause");
+			
+			$(".palyerPage .mPlay img").eq(0).addClass("active");
+				
+			$(".palyerPage .songImg .bg").addClass("rotate");
+			
+		} else {
+			
+			oAudio[0].pause();
+			
+			mOnoff.removeClass("glyphicon-pause");
+			
+			mOnoff.addClass("glyphicon-play");
+			
+			$(".palyerPage .mPlay img").eq(0).removeClass("active");
+				
+			$(".palyerPage .songImg .bg").removeClass("rotate");
+		}
+	}
+	
+	new Touchup(mOnoff[0],isPlay,clearShadow);
 	
 })()

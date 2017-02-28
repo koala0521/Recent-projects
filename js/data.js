@@ -45,35 +45,40 @@ var musicData = [
 					song:"成都",
 					singer:"赵雷",
 					imgSrc:"img/musicImg/cd.jpg",
-					bg:"url(img/musicImg/cd.jpg)"
+					bg:"url(img/musicImg/cd.jpg)",
+					duration:"05:28"
 				},
 				{
 					songSrc:"music/nhyzy.mp3",
 					song:"你还要我怎样",
 					singer:"薛之谦",
 					imgSrc:"img/musicImg/xueZhiQian.jpg",
-					bg:"url(img/musicImg/xueZhiQian.jpg)"
+					bg:"url(img/musicImg/xueZhiQian.jpg)",
+					duration:"05:10"
 				},
 				{
 					songSrc:"music/yang.mp3",
 					song:"痒",
 					singer:"黄龄",
 					imgSrc:"img/musicImg/huang.jpg",
-					bg:"url(img/musicImg/huang.jpg)"
+					bg:"url(img/musicImg/huang.jpg)",
+					duration:"03:48"
 				},
 				{
 					songSrc:"music/dtdmm.mp3",
 					song:"冬天的秘密",
 					singer:"周传雄",
 					imgSrc:"img/musicImg/dongTian.jpg",
-					bg:"url(img/musicImg/dongTian.jpg)"
+					bg:"url(img/musicImg/dongTian.jpg)",
+					duration:"04:32"
 				},
 				{
 					songSrc:"music/bnsqn.mp3",
 					song:"我绝对不能失去你",
 					singer:"GALA",
 					imgSrc:"img/musicImg/gala.jpg",
-					bg:"url(img/musicImg/gala.jpg)"
+					bg:"url(img/musicImg/gala.jpg)",
+					duration:"04:13"					
 				}
 
 			];

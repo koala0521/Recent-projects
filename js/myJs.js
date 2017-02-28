@@ -20,6 +20,7 @@ function gestureFn(){  //相册多指操作函数
 			start:function(e){
 
 				startRotate = css(this,"rotate");
+				
 				startScale = css(this,"scale");
 				
 			},
